@@ -1,0 +1,62 @@
+# Skye Goetz (CalPoly) 10/22/2024
+
+Molecules : 
+# [[ list of molecules and attributes ]]
+  # smiles formulas REQUIRE explicit hydrogens
+
+ - SmilesFormula : "[CH3][CH3]"
+   MolecularCharge : 0 
+   MolecularMultiplicity : 1
+
+TightOpt : 
+# [[ TightOpt Query Parameters ]]
+
+ Functional : PBE0
+ BasisSet : Def2-SVPD
+ SolventModel : SMD
+ SolventToUse : ethanol
+
+ScanAngle : 
+# [[ Scan Angle Query Parameters ]]
+
+ Functional : PBE0
+ BasisSet : Def2-SVPD
+ SolventModel : SMD
+ SolventToUse : ethanol
+
+ ScanType : D
+ Angles : 
+ # [[ List Of Angles For Geometry Scan ]]
+
+   - 0
+   - 1
+   - 4
+   - 6
+
+ Advanced : 
+
+   ScanRange :
+   # [[ In Degrees ]]
+     
+     - 0
+     - 90
+
+   NumberOfScans : 10
+
+TDDFT : 
+# [[ TDDFT Query Parameters ]]
+
+ Functional : CAM-B3LYP
+ BasisSet : Def2-TZVPD
+ SolventModel : CPCM
+ SolventToUse : ethanol
+
+ Advanced : 
+
+   Nroots : 10
+   Maxdim : 100
+
+AdvancedSettings : 
+# [[ Configures OrcaFunctionalHub ]]
+ 
+ NumberOfGeometryScansPerTDDFTCalculation : 1
