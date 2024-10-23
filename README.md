@@ -55,45 +55,68 @@ print(rdkit.__version__)
 Specify the molecules and calculation parameters in a YAML file. An example is provided below:
 
 ```yaml
-Molecules:
-  - SmilesFormula: "[CH3][CH3]"
-    MolecularCharge: 0
-    MolecularMultiplicity: 1
+# Skye Goetz (CalPoly) 10/22/2024
 
-TightOpt:
-  Functional: PBE0
-  BasisSet: Def2-SVPD
-  SolventModel: SMD
-  SolventToUse: ethanol
+Molecules : 
+# [[ list of molecules and attributes ]]
+  # smiles formulas REQUIRE explicit hydrogens
 
-ScanAngle:
-  Functional: PBE0
-  BasisSet: Def2-SVPD
-  SolventModel: SMD
-  SolventToUse: ethanol
-  ScanType: D
-  Angles:
-    - 0
-    - 1
-    - 4
-    - 6
-  Advanced:
-    ScanRange:
-      - 0
-      - 90
-    NumberOfScans: 10
+ - SmilesFormula : "[CH3][CH3]"
+   MolecularCharge : 0 
+   MolecularMultiplicity : 1
 
-TDDFT:
-  Functional: CAM-B3LYP
-  BasisSet: Def2-TZVPD
-  SolventModel: CPCM
-  SolventToUse: ethanol
-  Advanced:
-    Nroots: 10
-    Maxdim: 100
+TightOpt : 
+# [[ TightOpt Query Parameters ]]
 
-AdvancedSettings:
-  NumberOfGeometryScansPerTDDFTCalculation: 1
+ Functional : PBE0
+ BasisSet : Def2-SVPD
+ SolventModel : SMD
+ SolventToUse : ethanol
+
+ScanAngle : 
+# [[ Scan Angle Query Parameters ]]
+
+ Functional : PBE0
+ BasisSet : Def2-SVPD
+ SolventModel : SMD
+ SolventToUse : ethanol
+
+ ScanType : D
+ Angles : 
+ # [[ List Of Angles For Geometry Scan ]]
+
+   - 0
+   - 1
+   - 4
+   - 6
+
+ Advanced : 
+
+   ScanRange :
+   # [[ In Degrees ]]
+     
+     - 0
+     - 90
+
+   NumberOfScans : 10
+
+TDDFT : 
+# [[ TDDFT Query Parameters ]]
+
+ Functional : CAM-B3LYP
+ BasisSet : Def2-TZVPD
+ SolventModel : CPCM
+ SolventToUse : ethanol
+
+ Advanced : 
+
+   Nroots : 10
+   Maxdim : 100
+
+AdvancedSettings : 
+# [[ Configures OrcaFunctionalHub ]]
+ 
+ NumberOfGeometryScansPerTDDFTCalculation : 1
 ```
 
 ## Run the Script
