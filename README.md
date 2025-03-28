@@ -140,7 +140,3 @@ The script generates several output files, including:
 
 Skye Goetz (CalPoly)  
 Date: 10/22/2024
-
-### License
-
-This project is open-source. Please feel free to modify and distribute the code under the same terms as it is provided.
